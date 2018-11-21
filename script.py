@@ -1,5 +1,8 @@
 destinations = ["Paris, France", "Shanghai, China", "Los Angeles, USA", "So Paulo, Brazil", "Cairo, Egypt"]
 test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
+attractions = []
+for destination in destinations:
+  attractions.append([])
 
 def get_destination_index(destination):
   for i in range(len(destinations)):
