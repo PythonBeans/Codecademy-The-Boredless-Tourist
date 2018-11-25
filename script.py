@@ -12,11 +12,12 @@ def get_destination_index(destination):
       break
   return "Typo???"
   
-
 def get_traveler_location(traveler):
   traveler_destination = traveler[1]
   traveler_destination_index = get_destination_index(traveler_destination)
   return traveler_destination_index
+
+
 def add_attraction(destination, attraction):
   try:
     destination_index = get_destination_index(destination)
@@ -25,6 +26,19 @@ def add_attraction(destination, attraction):
   except TypeError:
     print("Error caught!")
   return
+
+def find_attractions(destination, interests):
+  destination_index = get_destination_index(destination)
+  attractions_in_city = attractions[destination_index]
+  attractions_with_interest = []
+  for possible_attraction in attractions_in_city:
+    attractions_with_interest.append(possible_attraction[0])
+    attraction_tags = possible_attraction[1]
+    for interest in interests:
+      if interest == attraction_tags:
+        attractions_with_interest.append(possible_attraction)
+  return attractions_with_interest
+
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
 add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
 add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historcical site"]])
